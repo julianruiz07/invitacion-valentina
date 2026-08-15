@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>INVITACION VALENTINA</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+     AVISO DE ORIENTACIÓN PARA CELULAR
+========================================== -->
+
+    <div class="aviso-orientacion">
+
+        <div class="aviso-orientacion-contenido">
+
+            <div class="icono-girar">📱</div>
+
+            <h2>Gira tu teléfono</h2>
+
+            <p>
+                Esta invitación fue creada para disfrutarse
+                en formato horizontal.
+            </p>
+
+            <div class="flecha-giro">↔</div>
+
+            <span>
+                Voltea tu celular para continuar
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="background">
+
+        <!-- ==========================================
+             PARTÍCULAS
+        ========================================== -->
+
+        <div id="particles"></div>
+
+        <!-- ==========================================
+             LUCES AMBIENTALES
+        ========================================== -->
+
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+        <div class="glow glow3"></div>
+
+        <!-- ==========================================
+             ESCENA 1
+             LIBRO CERRADO
+        ========================================== -->
+
+        <main class="hero">
+
+            <div class="book" id="book">
+
+                <div class="book-inner">
+
+                    <!-- PORTADA DEL LIBRO -->
+                    <div class="book-cover">
+
+                        <img src="assets/imagenes/asset01_portada_valentina.png" alt="Portada del libro de Valentina">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Frase superior -->
+
+            <div class="intro">
+
+                <p class="quote">
+
+                    <span>Los mejores recuerdos...</span>
+                    <span>se viven.</span>
+
+                </p>
+
+            </div>
+
+            <!-- Texto inferior -->
+
+            <p class="click-text">
+
+                Toca el libro para comenzar
+
+            </p>
+
+        </main>
+
+        <!-- ==========================================
+             ESCENA 3
+             LIBRO ABIERTO
+        ========================================== -->
+
+        <section class="scene-3">
+
+            <div class="book-open">
+                <!-- ==========================================
+                     PÁGINA IZQUIERDA
+                ========================================== -->
+
+                <div class="left-page">
+
+                    <div class="page-art page-1 active">
+
+                        <img src="assets/imagenes/reloj_arena.png" class="hourglass" alt="Reloj de arena">
+
+                    </div>
+
+                    <div class="page-art page-3">
+
+                        <img src="assets/imagenes/valentina_coco.png" class="valentina-coco"
+                            alt="Valentina estilo Coco">
+
+                    </div>
+
+                    <div class="page-art page-5">
+
+                        <img src="assets/imagenes/celebracion.png" class="celebracion" alt="Celebración de cumpleaños">
+
+                    </div>
+
+                    <div class="page-art page-7">
+
+                        <!-- Fondo página 7 -->
+                        <img src="assets/imagenes/fondo_pag7.png" class="fondo-pag7" alt="Decoración página 7">
+
+                        <!-- Pergamino para mensajes -->
+                        <div class="mensaje-interactivo">
+
+                            <img src="assets/imagenes/pergamino.png" class="pergamino-mensaje"
+                                alt="Dejar un mensaje a Valen">
+
+                            <div class="texto-pergamino">
+                                Tócame para<br>
+                                escribirle un<br>
+                                mensaje a Valen<br>
+                                <span class="corazon-pergamino">♥</span>
+                            </div>
+
+                        </div>
+
+
+                        <!-- FORMULARIO DEL PERGAMINO -->
+
+                        <div class="formulario-mensaje" id="formulario-mensaje">
+
+                            <div class="formulario-contenido">
+
+                                <h3>Escríbele un mensaje a Valen 💌</h3>
+
+                                <input type="text" id="nombre-invitado" maxlength="40" placeholder="Tu nombre">
+
+                                <textarea id="mensaje-usuario" maxlength="200"
+                                    placeholder="Escribe aquí tu mensaje..."></textarea>
+
+                                <div class="contador-mensaje">
+                                    <span id="contador-mensaje">0</span> / 200
+                                </div>
+
+                                <button id="btn-enviar-mensaje">
+                                    Guardar mi recuerdo ♥
+                                </button>
+
+                                <p id="estado-mensaje"></p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CÁMARA INTERACTIVA -->
+
+                        <div class="camara-interactiva">
+
+                            <img src="assets/imagenes/camara_antigua.png" class="camara-antigua"
+                                alt="Tomarse una fotografía">
+
+                            <div class="texto-camara">
+                                Tócame <br>
+                                y tómate<br>
+                                una foto con Valen
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ==========================================
+                     PÁGINA DERECHA
+                ========================================== -->
+
+                <div class="right-page">
+
+                    <!-- Página 2 -->
+
+                    <div class="page page-2 active">
+
+                        <h1>
+                            30 AÑOS
+                            <br>
+                            DESPUÉS...
+                        </h1>
+
+                        <p>
+
+                            Hace treinta años comenzó<br>
+                            una historia que aún sigue escribiéndose.<br>
+
+                            Una historia escrita con sonrisas sinceras,<br>
+                            abrazos inolvidables y momentos que,<br>
+                            sin darse cuenta, fueron construyendo los<br>
+                            recuerdos más valiosos de una vida.
+
+                        </p>
+
+                        <blockquote>
+
+                            Treinta años pueden medirse en días...
+
+                            <br>
+
+                            o en recuerdos.
+
+                        </blockquote>
+
+                    </div>
+
+                    <!-- Página 4 -->
+
+                    <div class="page page-4">
+
+                        <h1>
+                            NUEVOS
+                            <br>
+                            RECUERDOS
+                        </h1>
+
+                        <p>
+
+                            Hay personas que llegan para quedarse.
+
+                            <br><br>
+
+                            Otras aparecen justo cuando más las necesitamos
+                            y terminan convirtiéndose en parte de nuestra historia.
+
+                            <br>
+
+                            Cada risa.
+
+                            <br>
+
+                            Cada fotografía.
+
+                            <br>
+
+                            Cada abrazo...
+
+                            <br>
+
+                            Ha escrito un recuerdo imposible de olvidar.
+
+                        </p>
+
+                        <blockquote>
+
+                            Y hoy...
+
+                            <br>
+
+                            quiero seguir escribiendo esta historia contigo.
+
+                        </blockquote>
+
+                    </div>
+                    <!-- Página 6 -->
+
+                    <div class="page page-6">
+
+                        <h1>
+                            CELEBREMOS
+                            <br>
+                            JUNTOS
+                        </h1>
+
+                        <p>
+
+                            📅 <strong>Fecha:</strong> 5 de septiembre de 2026
+
+                            <br>
+
+                            🕒 <strong>Hora:</strong> 6:30 p.m.
+
+                            <br>
+
+                            📍 <strong>Lugar:</strong>
+
+                            <br>
+
+                            <a href="https://www.google.com/maps?q=5.053000,-75.510889" target="_blank"
+                                onclick="event.stopPropagation();">
+
+                                "Salón Social
+                                Conjunto Reserva Campestre"
+
+                            </a>
+
+                            <br><br>
+                            <span class="confirmacion-texto">
+                                Confirma asistencia antes del 29 de agosto
+                            </span>
+
+                            <br>
+
+                            <a class="confirmacion-boton"
+                                href="https://wa.me/573182148092?text=Hola%2C%20me%20llamo%20%5BTU%20NOMBRE%5D%20y%20te%20confirmo%20mi%20asistencia%20a%20la%20fiesta%20de%20Valen."
+                                target="_blank" onclick="event.stopPropagation();">
+                                CONFIRMO ASISTENCIA
+                            </a>
+
+                        </p>
+
+                        <blockquote>
+
+                            🎁 Habrá lluvia de regalos...
+
+
+                        </blockquote>
+
+                    </div>
+
+                    <!-- Página 8 -->
+
+                    <div class="page page-8">
+
+                        <h1>
+                            LA HISTORIA <br>CONTINUA...
+                        </h1>
+
+                        <p>
+
+                            Gracias por formar parte de mi historia.
+
+                            <br>
+
+                            Y por regalarme recuerdos que llevaré
+                            <br>
+                            conmigo toda la vida.
+
+                            <br>
+
+                            Hoy comienza un nuevo capítulo...
+
+                            <br>
+
+                            y quiero que tú también seas parte de él.
+
+                        </p>
+
+                        <blockquote>
+
+                            Que nunca nos falten motivos para sonreír, recordar y celebrar juntos.
+
+                            <br>
+
+                            <strong class="signature">Valen.</strong>
+
+                        </blockquote>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
