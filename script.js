@@ -117,12 +117,16 @@ window.addEventListener("load", () => {
 
 })
 
+const musica = new Audio("assets/audio/letra.mp3");
+musica.loop = true;
+musica.volume = 0.7;
+
 /* ==========================================
    CLICK EN EL LIBRO — DESTELLO
 ========================================== */
 
 book.addEventListener("click", () => {
-
+  musica.play();
     /* Evitar doble clic */
     if (book.classList.contains("transitioning")) {
         return;
