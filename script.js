@@ -117,7 +117,7 @@ window.addEventListener("load", () => {
 
 })
 
-const musica = new Audio("assets/audio/cancion_invitacion.mp3);
+const musica = new Audio("assets/audio/cancion_invitacion.mp3");
 musica.loop = true;
 musica.volume = 0.7;
 
