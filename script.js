@@ -666,7 +666,7 @@ function mostrarCamara(stream) {
 
                 <img
                     id="marco-camara"
-                    src="assets/images/marco_mexicano.png"
+                    src="assets/images/asset03_marco_fotos"
                     alt=""
                 >
 
@@ -798,7 +798,7 @@ function mostrarCamara(stream) {
             >
 
             <img
-                src="assets/images/marco_mexicano.png"
+                src="assets/images/asset03_marco_fotos"
                 class="marco-final"
                 alt=""
             >
