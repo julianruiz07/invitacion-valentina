@@ -634,47 +634,62 @@ function mostrarCamara(stream) {
     const ventanaCamara = document.createElement("div");
 
     ventanaCamara.className = "ventana-camara";
-ventanaCamara.style.position = "fixed";
-ventanaCamara.style.inset = "0";
-ventanaCamara.style.zIndex = "999999";
-ventanaCamara.style.display = "flex";
-ventanaCamara.style.background = "rgba(255, 0, 0, 0.8)";
+
     ventanaCamara.innerHTML = `
         <div class="contenido-camara">
 
-            <video
-                id="video-camara"
-                autoplay
-                playsinline
-                muted
-            ></video>
+            <div class="camara-header">
+                <span>📷 Cámara</span>
 
-            <canvas
-                id="canvas-camara"
-                style="display: none;"
-            ></canvas>
+                <button
+                    id="cerrar-camara"
+                    type="button"
+                    class="cerrar-camara"
+                >
+                    ✕
+                </button>
+            </div>
 
-            <button
-                id="cerrar-camara"
-                type="button"
-            >
-                ✕
-            </button>
+            <div class="visor-camara">
+
+                <video
+                    id="video-camara"
+                    autoplay
+                    playsinline
+                    muted
+                ></video>
+
+                <canvas
+                    id="canvas-camara"
+                    style="display: none;"
+                ></canvas>
+
+                <img
+                    id="marco-camara"
+                    src="assets/images/marco_mexicano.png"
+                    alt=""
+                >
+
+            </div>
 
             <button
                 id="tomar-foto"
                 type="button"
+                class="btn-camara btn-tomar"
             >
                 📸 Tomar foto
             </button>
 
             <div
                 id="controles-foto"
+                class="controles-foto"
                 style="display: none;"
             >
+
                 <button
                     id="repetir-foto"
                     type="button"
+                    class="btn-camara btn-repetir"
                 >
                     🔄 Repetir
                 </button>
@@ -682,9 +697,11 @@ ventanaCamara.style.background = "rgba(255, 0, 0, 0.8)";
                 <button
                     id="usar-foto"
                     type="button"
+                    class="btn-camara btn-usar"
                 >
                     ❤️ Usar foto
                 </button>
+
             </div>
 
         </div>
@@ -702,6 +719,8 @@ ventanaCamara.style.background = "rgba(255, 0, 0, 0.8)";
     const controlesFoto =
         document.getElementById("controles-foto");
 
+    const marcoCamara =
+        document.getElementById("marco-camara");
 
     video.srcObject = stream;
 
@@ -730,11 +749,14 @@ ventanaCamara.style.background = "rgba(255, 0, 0, 0.8)";
         );
 
         video.style.display = "none";
+
+        marcoCamara.style.display = "none";
+
         canvas.style.display = "block";
 
         btnTomar.style.display = "none";
-        controlesFoto.style.display = "flex";
 
+        controlesFoto.style.display = "flex";
     });
 
 
@@ -745,34 +767,77 @@ ventanaCamara.style.background = "rgba(255, 0, 0, 0.8)";
     btnRepetir.addEventListener("click", () => {
 
         canvas.style.display = "none";
+
         video.style.display = "block";
 
-        controlesFoto.style.display = "none";
-        btnTomar.style.display = "block";
+        marcoCamara.style.display = "block";
 
+        controlesFoto.style.display = "none";
+
+        btnTomar.style.display = "block";
     });
 
 
     /* ==========================================
-       USAR FOTO
+       USAR FOTO + MARCO
     ========================================== */
 
     btnUsar.addEventListener("click", () => {
 
         const foto = canvas.toDataURL("image/png");
 
-        console.log("📸 Foto capturada:", foto);
+        const resultado = document.createElement("div");
 
-        /*
-         * POR AHORA:
-         * dejamos la foto capturada lista.
-         *
-         * Aquí vamos a colocar después
-         * el marco y la composición final.
-         */
+        resultado.className = "resultado-foto";
 
+        resultado.innerHTML = `
+            <img
+                src="${foto}"
+                class="foto-final"
+                alt="Foto"
+            >
+
+            <img
+                src="assets/images/marco_mexicano.png"
+                class="marco-final"
+                alt=""
+            >
+
+            <button
+                type="button"
+                class="cerrar-resultado"
+            >
+                ✕
+            </button>
+        `;
+
+        document.body.appendChild(resultado);
+
+        resultado
+            .querySelector(".cerrar-resultado")
+            .addEventListener("click", () => {
+
+                resultado.remove();
+
+            });
+
+        cerrarCamara(ventanaCamara);
     });
 
+
+    /* ==========================================
+       CERRAR CÁMARA
+    ========================================== */
+
+    document
+        .getElementById("cerrar-camara")
+        .addEventListener("click", () => {
+
+            cerrarCamara(ventanaCamara);
+
+        });
+
+}
 
     /* ==========================================
        CERRAR CÁMARA
