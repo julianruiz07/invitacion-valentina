@@ -839,21 +839,6 @@ function mostrarCamara(stream) {
 
 }
 
-    /* ==========================================
-       CERRAR CÁMARA
-    ========================================== */
-
-    document
-        .getElementById("cerrar-camara")
-        .addEventListener("click", () => {
-
-            cerrarCamara(ventanaCamara);
-
-        });
-
-}
-
-
 /* ---------- CERRAR CÁMARA ---------- */
 
 function cerrarCamara(ventanaCamara) {
