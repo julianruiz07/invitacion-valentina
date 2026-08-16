@@ -599,7 +599,7 @@ let streamCamara = null;
 
 camara.addEventListener("click", async () => {
 
-    alert("TOQUE DETECTADO");
+   
     try {
 
         streamCamara = await navigator.mediaDevices.getUserMedia({
@@ -612,14 +612,12 @@ camara.addEventListener("click", async () => {
         console.log("📷 Cámara abierta correctamente");
 
         mostrarCamara(streamCamara);
-    alert("VENTANA CREADA");
+    
     } catch (error) {
 
         console.error("Error al abrir la cámara:", error);
 
-        alert("No se pudo abrir la cámara.");
-
-    }
+      }
 
 });
 
