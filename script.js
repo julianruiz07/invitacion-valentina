@@ -599,6 +599,7 @@ let streamCamara = null;
 
 camara.addEventListener("click", async () => {
 
+    alert("TOQUE DETECTADO");
     try {
 
         streamCamara = await navigator.mediaDevices.getUserMedia({
