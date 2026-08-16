@@ -630,7 +630,11 @@ function mostrarCamara(stream) {
     const ventanaCamara = document.createElement("div");
 
     ventanaCamara.className = "ventana-camara";
-
+ventanaCamara.style.position = "fixed";
+ventanaCamara.style.inset = "0";
+ventanaCamara.style.zIndex = "999999";
+ventanaCamara.style.display = "flex";
+ventanaCamara.style.background = "rgba(255, 0, 0, 0.8)";
     ventanaCamara.innerHTML = `
         <div class="contenido-camara">
 
