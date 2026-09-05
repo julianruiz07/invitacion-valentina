@@ -805,12 +805,37 @@ btnTomar.addEventListener("click", () => {
     });
 
 
-    /* ==========================================
-       USAR FOTO + MARCO
-    ========================================== */
+   /* ==========================================
+   USAR FOTO + MARCO + GUARDAR EN SUPABASE
+========================================== */
 
-    btnUsar.addEventListener("click", () => {
+btnUsar.addEventListener("click", () => {
 
+    canvas.toBlob(async (blob) => {
+
+        if (!blob) {
+            console.error("No se pudo preparar la foto.");
+            return;
+        }
+
+        /* Nombre único para cada foto */
+        const nombreArchivo = `foto_${Date.now()}.png`;
+
+        /* Subir foto completa a Supabase Storage */
+        const { error } = await supabaseClient
+            .storage
+            .from("fotos")
+            .upload(nombreArchivo, blob, {
+                contentType: "image/png",
+                upsert: false
+            });
+
+        if (error) {
+            console.error("Error al guardar la foto:", error);
+            return;
+        }
+
+        /* Mostrar la foto final */
         const foto = canvas.toDataURL("image/png");
 
         const resultado = document.createElement("div");
@@ -822,12 +847,6 @@ btnTomar.addEventListener("click", () => {
                 src="${foto}"
                 class="foto-final"
                 alt="Foto"
-            >
-
-            <img
-                src="assets/imagenes/asset03_marco_fotos.png"
-                class="marco-final"
-                alt=""
             >
 
             <button
@@ -843,14 +862,14 @@ btnTomar.addEventListener("click", () => {
         resultado
             .querySelector(".cerrar-resultado")
             .addEventListener("click", () => {
-
                 resultado.remove();
-
             });
 
         cerrarCamara(ventanaCamara);
-    });
 
+    }, "image/png");
+
+});
 
     /* ==========================================
        CERRAR CÁMARA
