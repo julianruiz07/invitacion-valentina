@@ -725,41 +725,68 @@ function mostrarCamara(stream) {
     video.srcObject = stream;
 
 
-    /* ==========================================
-       TOMAR FOTO
-    ========================================== */
+   /* ==========================================
+   TOMAR FOTO + INCORPORAR MARCO
+========================================== */
 
-    btnTomar.addEventListener("click", () => {
+btnTomar.addEventListener("click", () => {
 
-        if (!video.videoWidth || !video.videoHeight) {
-            return;
-        }
+    if (!video.videoWidth || !video.videoHeight) {
+        return;
+    }
 
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
 
-        const contexto = canvas.getContext("2d");
+    const contexto = canvas.getContext("2d");
+
+    /* Capturar la foto */
+    contexto.drawImage(
+        video,
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    /* Incorporar el marco dentro de la foto */
+    if (marcoCamara.complete) {
 
         contexto.drawImage(
-            video,
+            marcoCamara,
             0,
             0,
             canvas.width,
             canvas.height
         );
 
-        video.style.display = "none";
+    } else {
 
-        marcoCamara.style.display = "none";
+        marcoCamara.onload = () => {
 
-        canvas.style.display = "block";
+            contexto.drawImage(
+                marcoCamara,
+                0,
+                0,
+                canvas.width,
+                canvas.height
+            );
 
-        btnTomar.style.display = "none";
+        };
 
-        controlesFoto.style.display = "flex";
-    });
+    }
 
+    /* Mostrar la foto final */
+    video.style.display = "none";
 
+    marcoCamara.style.display = "none";
+
+    canvas.style.display = "block";
+
+    btnTomar.style.display = "none";
+
+    controlesFoto.style.display = "flex";
+});
     /* ==========================================
        REPETIR FOTO
     ========================================== */
